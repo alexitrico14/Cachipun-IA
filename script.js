@@ -21,8 +21,8 @@ for (let i = 0; i < rondas; i++) {
     ) {
         result = "¡Ganaste!";
     } else {
-        result = "Perdiste contra la máquina.";
+        result = "Perdiste contra la IA.";
     }
 
-    alert(`Ronda ${i + 1}: Tú elegiste ${user}, la máquina eligió ${cpu}. ${result}`);
+    alert(`Ronda ${i + 1}: Tú elegiste ${user}, la IA eligió ${cpu}. ${result}`);
 }
