@@ -1,12 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cachipún IA</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
-    <script src="./script.js"></script>
+    <section class="container">
+        <h1>Cachipún vs IA 🤖</h1>  <!-- Debo mejorar ese nombre -->
+
+        <div class="game-container">
+            <p>Elige tu jugada:</p>
+            <button class="choice" data-choice="piedra">🪨 Piedra</button>
+            <button class="choice" data-choice="papel">📄 Papel</button>
+            <button class="choice" data-choice="tijera">✂️ Tijera</button>
+        </div>
+
+        <div class="result">
+            <p id="user-choice">Tu elección: <span>-</span></p>
+            <p id="ai-choice">🤖: <span>-</span></p>
+            <h2 id="winner">Resultado: -</h2>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.game-container {
+    margin: 20px 0;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    font-size: 20px;
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+h2 {
+    margin-top: 10px;
+    color: blue;
+}
+
+#user-choice span,
+#ai-choice span {
+    font-weight: bold;
+}
+
+.choice {
+    font-size: 20px;
+    margin: 10px;
+    padding: 15px;
+    cursor: pointer;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: rgb(48, 47, 47);
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.choice:hover {
+    transform: scale(1.1);
+    background-color: lightgray;
+    color: #000;
+}
+
+.choice.selected {
+    background-color: #4CAF50; /* Verde cuando elige */
+    color: white;
+    transform: scale(1.2);
+}
+
+.loading {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff9800; /* Naranja */
+    animation: blink 0.8s infinite alternate;
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0.3; }
+}
+
+.win {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4CAF50; /* Verde */
+}

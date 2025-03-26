@@ -1,28 +1,49 @@
-let rondas = parseInt(prompt("¿Cuántas veces quieres jugar?"));
+document.addEventListener("DOMContentLoaded", () => {
+    const choices = document.querySelectorAll(".choice");
+    const userChoiceText = document.querySelector("#user-choice span");
+    const aiChoiceText = document.querySelector("#ai-choice span");
+    const winnerText = document.querySelector("#winner");
 
-for (let i = 0; i < rondas; i++) {
-    let user = prompt("Elige: piedra, papel o tijera").toLowerCase();
+    choices.forEach(button => {
+        button.addEventListener("click", () => {
+            // Quitar selección previa
+            choices.forEach(btn => btn.classList.remove("selected"));
+            
+            // Marcar la opción seleccionada
+            button.classList.add("selected");
 
-    let cpu;
-    let randomNumber = Math.floor(Math.random() * 3);
+            const userChoice = button.dataset.choice;
+            const aiChoice = getAIChoice();
 
-    if (randomNumber === 0) {
-        cpu = "piedra";
-    } else if (randomNumber === 1) {
-        cpu = "papel";
-    } else {
-        cpu = "tijera";
+            // Mostrar la elección del usuario y un mensaje de carga
+            userChoiceText.textContent = userChoice;
+            aiChoiceText.innerHTML = '<span class="loading">🤔 Pensando...</span>';
+            winnerText.textContent = "Analizando...";
+
+            // Esperar antes de mostrar la elección de la IA y el resultado
+            setTimeout(() => {
+                aiChoiceText.textContent = aiChoice;
+                const winner = getWinner(userChoice, aiChoice);
+                winnerText.innerHTML = `<span class="win">${winner}</span>`;
+            }, 1500);
+        });
+    });
+
+    function getAIChoice() {
+        const options = ["piedra", "papel", "tijera"];
+        return options[Math.floor(Math.random() * options.length)];
     }
 
-    let result;
-    if (user === cpu) {
-        result = "Empate";
-    } else if ((user === "piedra" && cpu === "tijera") || (user === "papel" && cpu === "piedra") || (user === "tijera" && cpu === "papel")
-    ) {
-        result = "¡Ganaste!";
-    } else {
-        result = "Perdiste contra la IA.";
+    function getWinner(user, ai) {
+        if (user === ai) return "¡Empate!";
+        if (
+            (user === "piedra" && ai === "tijera") ||
+            (user === "papel" && ai === "piedra") ||
+            (user === "tijera" && ai === "papel")
+        ) {
+            return "¡Ganaste! 🎉";
+        } else {
+            return "La IA gana... 😔";
+        }
     }
-
-    alert(`Ronda ${i + 1}: Tú elegiste ${user}, la IA eligió ${cpu}. ${result}`);
-}
+});
